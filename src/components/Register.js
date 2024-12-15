@@ -10,23 +10,46 @@ const Register = () => {
     password: "",
     termsAccepted: false,
   });
+  const [error, setError] = useState(""); // To handle error messages
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    
+    // If the user is typing in the password field, clear the error
+    if (name === "password" && error) {
+      setError("");
+    }
+
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
   };
 
+  const validatePassword = (password) => {
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    return passwordPattern.test(password);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.termsAccepted) {
-      console.log("Registration successful:", formData);
-      navigate("/loginpage"); // Redirect to the login page after registration
-    } else {
-      alert("Please accept the terms and conditions.");
+
+    // Check if password meets the criteria
+    if (!validatePassword(formData.password)) {
+      setError("Password must be at least 6 characters long and contain alphanumeric characters and symbols.");
+      return;
     }
+
+    // Check if terms are accepted
+    if (!formData.termsAccepted) {
+      alert("Please accept the terms and conditions.");
+      return;
+    }
+
+    // If everything is valid
+    setError(""); // Clear any previous errors
+    console.log("Registration successful:", formData);
+    navigate("/loginpage"); // Redirect to the login page after registration
   };
 
   return (
@@ -36,6 +59,7 @@ const Register = () => {
           <form onSubmit={handleSubmit}>
             <h1>Registration</h1>
 
+            {/* Username */}
             <div className="input-box">
               <input
                 type="text"
@@ -48,6 +72,7 @@ const Register = () => {
               <FaUser className="icon" />
             </div>
 
+            {/* Email */}
             <div className="input-box">
               <input
                 type="email"
@@ -60,6 +85,7 @@ const Register = () => {
               <FaEnvelope className="icon" />
             </div>
 
+            {/* Password */}
             <div className="input-box">
               <input
                 type="password"
@@ -72,6 +98,10 @@ const Register = () => {
               <FaLock className="icon" />
             </div>
 
+            {/* Error Message */}
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            {/* Terms & Conditions Checkbox */}
             <div className="remember-forgot">
               <label>
                 <input
@@ -86,6 +116,7 @@ const Register = () => {
 
             <button type="submit">Register</button>
 
+            {/* Login Link */}
             <div className="register-link">
               <p>
                 Already have an account?{" "}

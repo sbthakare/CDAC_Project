@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ProfileBuilder from "./ProfileBuilder";
+import JobApply from "./JobApply";
+import ViewAppliedJobs from "./ViewAppliedJobs";
+import JobAlert from "./JobAlert";
+
 
 
 const StudentDashboard = () => {
   const [activeSection, setActiveSection] = useState("profileBuilder");
   const [studentImage, setStudentImage] = useState(null);
-  const [appliedJobs, setAppliedJobs] = useState([
-    { title: "Software Developer", company: "ABC Corp", status: "Pending" },
-  ]);
+  const [appliedJobs, setAppliedJobs] = useState([]);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -17,148 +21,73 @@ const StudentDashboard = () => {
     }
   };
 
+  const handleSignOut = () => {
+    console.log("User signed out");
+    
+  };
+
   return (
-    <div className="dashboard">
+    <div className="dashboard d-flex">
       {/* Sidebar */}
-      <div className="sidebar">
+      <div className="sidebar bg-dark text-light p-3" style={{ width: "250px", height: "100vh" }}>
         <div className="profile text-center">
           <img
             src={studentImage || "placeholder.png"}
             alt="Student"
-            className="img-thumbnail"
+            className="img-thumbnail mb-2"
+            style={{ width: "100px", height: "100px" }}
           />
           <p>Student Name</p>
           <input
             type="file"
             accept="image/*"
-            className="form-control mt-2"
+            className="mt-2"
             onChange={handleImageUpload}
           />
         </div>
         <ul className="list-unstyled mt-4">
           <li
-            className={`p-2 ${activeSection === "profileBuilder" ? "active" : ""}`}
+            className={`p-2 ${activeSection === "profileBuilder" ? "bg-primary text-light" : ""}`}
             onClick={() => setActiveSection("profileBuilder")}
           >
             Profile Builder
           </li>
           <li
-            className={`p-2 ${activeSection === "jobApply" ? "active" : ""}`}
+            className={`p-2 ${activeSection === "jobApply" ? "bg-primary text-light" : ""}`}
             onClick={() => setActiveSection("jobApply")}
           >
-            Job Apply
+            Jobs
           </li>
           <li
-            className={`p-2 ${activeSection === "viewAppliedJobs" ? "active" : ""}`}
+            className={`p-2 ${activeSection === "viewAppliedJobs" ? "bg-primary text-light" : ""}`}
             onClick={() => setActiveSection("viewAppliedJobs")}
           >
             View Applied Jobs
           </li>
           <li
-            className={`p-2 ${activeSection === "jobAlert" ? "active" : ""}`}
+            className={`p-2 ${activeSection === "jobAlert" ? "bg-primary text-light" : ""}`}
             onClick={() => setActiveSection("jobAlert")}
           >
             Job Alerts
           </li>
         </ul>
+
+        <button className="btn btn-danger w-auto min-w-100 px-3 ms-4" onClick={handleSignOut}>
+          Sign Out
+        </button>
       </div>
 
       {/* Content */}
-      <div className="content">
+      <div className="content flex-grow-1 p-4">
         {activeSection === "profileBuilder" && <ProfileBuilder />}
         {activeSection === "jobApply" && (
           <JobApply onApply={(job) => setAppliedJobs([...appliedJobs, job])} />
         )}
-        {activeSection === "viewAppliedJobs" && (
-          <ViewAppliedJobs appliedJobs={appliedJobs} />
-        )}
+        {activeSection === "viewAppliedJobs" && <ViewAppliedJobs appliedJobs={appliedJobs} />}
         {activeSection === "jobAlert" && <JobAlert />}
       </div>
     </div>
   );
 };
-
-const ProfileBuilder = () => {
-  return (
-    <div className="section">
-      <h2>Profile Builder</h2>
-      <div className="card p-3 mb-3">
-        <h3>Education Details</h3>
-        <input type="text" className="form-control" placeholder="Enter Education Details" />
-      </div>
-      <div className="card p-3 mb-3">
-        <h3>Project Details</h3>
-        <input type="text" className="form-control" placeholder="Enter Project Details" />
-      </div>
-      <div className="card p-3 mb-3">
-        <h3>Skills</h3>
-        <input type="text" className="form-control" placeholder="Enter Skills" />
-      </div>
-      <div className="card p-3">
-        <h3>Resume Upload</h3>
-        <input type="file" className="form-control" accept=".pdf" />
-      </div>
-    </div>
-  );
-};
-
-const JobApply = ({ onApply }) => {
-  const jobs = [
-    { title: "Frontend Developer", company: "XYZ Tech", salary: "$50,000/year" },
-    { title: "Backend Developer", company: "ABC Inc", salary: "$60,000/year" },
-  ];
-
-  return (
-    <div className="section">
-      <h2>Available Jobs</h2>
-      {jobs.map((job, index) => (
-        <div key={index} className="card p-3 d-flex align-items-center justify-content-between mb-3">
-          <div>
-            <h4>{job.title}</h4>
-            <p>{job.company}</p>
-            <p>Salary: {job.salary}</p>
-          </div>
-          <button
-            className="btn btn-primary"
-            onClick={() => onApply({ title: job.title, company: job.company, status: "Applied" })}
-          >
-            Apply
-          </button>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const ViewAppliedJobs = ({ appliedJobs }) => (
-  <div className="section">
-    <h2>Applied Jobs</h2>
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Job Title</th>
-          <th>Company</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {appliedJobs.map((job, index) => (
-          <tr key={index}>
-            <td>{job.title}</td>
-            <td>{job.company}</td>
-            <td>{job.status}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
-
-const JobAlert = () => (
-  <div className="section">
-    <h2>Job Alerts</h2>
-    <p>No new job alerts.</p>
-  </div>
-);
 
 export default StudentDashboard;

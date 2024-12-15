@@ -1,8 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import logo from '../assests/logo1.jpg';
 
 export default function Header() {
+    const navigate = useNavigate();
+
+    const handleSignUp = () => {
+      navigate('/loginpage');
+    };
 
   return (
     <>
@@ -28,37 +33,28 @@ export default function Header() {
                 </li>
 
                 <li class="nav-item">
-                    <Link class="nav-link" to="aboutpage">About</Link>
+                    <a class="nav-link" href="#Aboutsection">About</a>
                 </li>
                 
                 <li class="nav-item">
-                    <Link class="nav-link" to="Contactpage">Contact</Link>
+                    <a class="nav-link" href="#contactsection">Contact</a>
                 </li>
-
-                <li class="nav-item">
-                    <Link class="nav-link" to="studentpage">StudentDashboard</Link>
-                </li>
-
-                <li class="nav-item">
-                    <Link class="nav-link" to="employeepage">EmployeeDashboard</Link>
-                </li>
-
-                <li class="nav-item">
-                    <Link class="nav-link" to="admingpage">AdminDashboard</Link>
-                </li>
-
+                
             </ul>
             
            
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sign Up
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-                    <li><Link class="dropdown-item" to="loginpage">Student</Link></li>
-                    <li><Link class="dropdown-item" to="loginpage">Employee</Link></li>
-                </ul>
-            </div>
+            {/* Sign-Up Button */}
+          <div className="dropdown">
+            <button
+              className="btn btn-primary px-4"
+              type="button"
+              id="loginDropdown"
+              onClick={handleSignUp}
+            >
+              Sign Up
+            </button>
+          </div>
+
         </div>
     </div>
 </nav>

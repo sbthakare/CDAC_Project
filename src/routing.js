@@ -7,13 +7,13 @@ import Footer from "./components/Footer";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Header from "./components/Header";
-import ContactUs from "./components/ContactUs";
 import Home from "./components/Home";
 import StudentDashboard from "./components/Student/StudentDashboard";
-import StudentRegistration from "./components/Student/StudentRegistration";
 import ForgetPassword from "./components/ForgetPassword";
 import AdminDashboard from "./components/company/AdminDashboard";
 import EmployeeDashboard from "./components/Employee/EmployeeDashboard";
+
+
 
 
 const router = createBrowserRouter([
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
         path: "loginpage",
         element: <Login />,
       },
+      
       {
         path: "registerpage",
         element: <Register />,
@@ -45,17 +46,10 @@ const router = createBrowserRouter([
         path: "forgotpasswordpage",
         element: <ForgetPassword/>,
       },
-      {
-        path: "Contactpage",
-        element: <ContactUs/>,
-      },
+      
       {
         path: "studentpage",
         element: <StudentDashboard/>,
-      },
-      {
-        path: "studentRegpage",
-        element: <StudentRegistration/>,
       },
       {
         path: "admingpage",
@@ -65,6 +59,7 @@ const router = createBrowserRouter([
         path: "employeepage",
         element: <EmployeeDashboard/>,
       },
+ 
     ],
   },
 ]);
