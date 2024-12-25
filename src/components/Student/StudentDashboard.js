@@ -7,6 +7,7 @@ import JobAlert from "./JobAlert";
 
 
 
+
 const StudentDashboard = () => {
   const [activeSection, setActiveSection] = useState("profileBuilder");
   const [studentImage, setStudentImage] = useState(null);
@@ -23,7 +24,7 @@ const StudentDashboard = () => {
 
   const handleSignOut = () => {
     console.log("User signed out");
-    
+   
   };
 
   return (
