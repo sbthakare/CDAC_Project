@@ -3,7 +3,7 @@ import PostJob from "./PostJob";
 import WorkTracker from "./WorkTracker";
 import ViewStudents from "./ViewStudents";
 import ViewEmployees from "./ViewEmployees";
-
+import Transactions from "./Transactions";
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("postJob");
@@ -23,6 +23,7 @@ const AdminDashboard = () => {
           <li onClick={() => showSection("workTracker")}>Task Assign</li>
           <li onClick={() => showSection("viewStudents")}>View Students</li>
           <li onClick={() => showSection("viewEmployees")}>Employees Management</li>
+          <li onClick={() => showSection("transactions")}>Transactions</li>
         </ul>
       </div>
 
@@ -32,6 +33,7 @@ const AdminDashboard = () => {
         {activeSection === "workTracker" && <WorkTracker />}
         {activeSection === "viewStudents" && <ViewStudents />}
         {activeSection === "viewEmployees" && <ViewEmployees />}
+        {activeSection === "transactions" && <Transactions/>}
       </div>
     </div>
   );

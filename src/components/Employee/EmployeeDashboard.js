@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Profile from "./Profile";
 import TaskTracker from "./TaskTracker";
-import { GrSchedule } from "react-icons/gr";
-
+import Calendar from "./Calendar";
 const EmployeeDashboard = () => {
   const [activeSection, setActiveSection] = useState("profile");
   const [profile, setProfile] = useState({
@@ -19,7 +18,9 @@ const EmployeeDashboard = () => {
   const saveProfile = () => {
     const { name, email, position } = profile;
     if (name && email && position) {
-      alert(`Profile saved:\nName: ${name}\nEmail: ${email}\nPosition: ${position}`);
+      alert(
+        `Profile saved:\nName: ${name}\nEmail: ${email}\nPosition: ${position}`
+      );
     } else {
       alert("Please fill out all fields.");
     }
@@ -44,10 +45,10 @@ const EmployeeDashboard = () => {
             Task Tracker
           </li>
           <li
-            className={activeSection === "schedule" ? "active" : ""}
-            onClick={() => setActiveSection("schedule")}
+            className={activeSection === "calender" ? "active" : ""}
+            onClick={() => setActiveSection("calender")}
           >
-            schedule
+            Calender
           </li>
         </ul>
       </div>
@@ -62,7 +63,7 @@ const EmployeeDashboard = () => {
           />
         )}
         {activeSection === "taskTracker" && <TaskTracker />}
-        {activeSection === "schedule" && <GrSchedule />}
+        {activeSection === "calender" && <Calendar />}
       </div>
     </div>
   );

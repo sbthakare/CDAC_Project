@@ -1,51 +1,43 @@
 import React, { useState,useEffect } from "react";
 
 const JobAlert = () => {
-    // Simulating recently added jobs, you can replace this with real-time data or API call
-    const [jobAlerts, setJobAlerts] = useState([
-      { title: "Frontend Developer",  posted: "2 hours ago" },
-      { title: "Backend Developer",  posted: "5 hours ago" },
-      { title: "Full Stack Developer",  posted: "1 day ago" },
-    ]);
-  
-    // Optional: This effect simulates new jobs being added periodically.
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setJobAlerts((prevAlerts) => [
-          ...prevAlerts,
-          {
-            title: `New Job at ${Math.random() > 0.5 ? "XYZ Corp" : "ABC Ltd"}`,
-            company: Math.random() > 0.5 ? "XYZ Corp" : "ABC Ltd",
-            posted: "Just Now",
-          },
-        ]);
-      }, 60000); // Adds a new job every minute
-  
-      return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, []);
-  
-    return (
-      <div className="section">
-        <h2>Job Alerts</h2>
-        {jobAlerts.length === 0 ? (
-          <p>No new job alerts.</p>
-        ) : (
-          <div className="row">
-            {jobAlerts.map((alert, index) => (
-              <div key={index} className="col-md-4 mb-4">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{alert.title}</h5>
-                    <p className="card-text">Posted: {alert.posted}</p>
-                  </div>
-                </div>
-              </div>
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    const storedJobs = JSON.parse(localStorage.getItem("postedJobs")) || [];
+    setJobs(storedJobs);
+  }, []);
+
+  return (
+    <div className="job-alert-container">
+      <h2>Posted Jobs</h2>
+      {jobs.length > 0 ? (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Skills</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jobs.map((job, index) => (
+              <tr key={index}>
+                <td>{job.title}</td>
+                <td>{job.description}</td>
+                <td>{job.skills}</td>
+                <td>₹{job.salary}</td>
+              </tr>
             ))}
-          </div>
-        )}
-      </div>
-    );
-  };
+          </tbody>
+        </table>
+      ) : (
+        <p>No jobs posted yet.</p>
+      )}
+    </div>
+  );
+};
   
 
 export default JobAlert;

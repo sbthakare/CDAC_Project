@@ -277,3 +277,81 @@ h2 {
   border-radius: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+/*Transaction History*/
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+}
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+.amount {
+  font-weight: bold;
+  color: #333;
+}
+.status-pending {
+  color: #e67e22;
+  font-weight: bold;
+}
+.status-successful {
+  color: #2ecc71;
+  font-weight: bold;
+}
+.icon {
+  margin-right: 5px;
+}
+.icon.paypal::before {
+  content: "💳";
+}
+.icon.bank-transfer::before {
+  content: "🏦";
+}
+.icon.pending::before {
+  content: "⏳";
+}
+.icon.successful::before {
+  content: "✔️";
+}
+/*Calender*/
+.calendar-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-item {
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.integration-info {
+  margin-top: 20px;
+  font-style: italic;
+}
