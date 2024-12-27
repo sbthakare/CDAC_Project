@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Profile from "./Profile";
 import TaskTracker from "./TaskTracker";
 import Calendar from "./Calendar";
+import Schedule from "./schedule";
 const EmployeeDashboard = () => {
   const [activeSection, setActiveSection] = useState("profile");
   const [profile, setProfile] = useState({
@@ -50,6 +51,12 @@ const EmployeeDashboard = () => {
           >
             Calender
           </li>
+          <li
+            className={activeSection === "Schedule" ? "active" : ""}
+            onClick={() => setActiveSection("Schedule")}
+          >
+            Schedule
+          </li>
         </ul>
       </div>
 
@@ -64,6 +71,7 @@ const EmployeeDashboard = () => {
         )}
         {activeSection === "taskTracker" && <TaskTracker />}
         {activeSection === "calender" && <Calendar />}
+        {activeSection === "Schedule" && <Schedule />}
       </div>
     </div>
   );

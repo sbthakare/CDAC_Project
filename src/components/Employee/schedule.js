@@ -10,13 +10,15 @@ const EmployeeScheduler = ({ assignedTasks }) => {
 
   useEffect(() => {
     // Initialize the employee's calendar with the assigned tasks
-    const taskEvents = assignedTasks.map((task) => ({
-      title: `${task.title} - ${task.employee}`,
-      start: task.start,
-      description: task.description,
-      allDay: true,
-    }));
-    setEvents(taskEvents);
+    if (assignedTasks && Array.isArray(assignedTasks)) {
+      const taskEvents = assignedTasks.map((task) => ({
+        title: `${task.title} - ${task.employee}`,
+        start: task.start,
+        description: task.description || "",
+        allDay: true,
+      }));
+      setEvents(taskEvents);
+    }
   }, [assignedTasks]);
 
   const handleDateClick = (info) => {
@@ -36,12 +38,6 @@ const EmployeeScheduler = ({ assignedTasks }) => {
 
   return (
     <div className="container mt-5">
-      <h2>Your Schedule</h2>
-      <div className="card p-4 mb-4">
-        <h4>View Your Assigned Tasks and Meetings</h4>
-        <p>You can see your tasks and meetings below.</p>
-      </div>
-
       <h4>Calendar</h4>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

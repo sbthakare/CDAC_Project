@@ -72,10 +72,6 @@ const StudentDashboard = () => {
             Job Alerts
           </li>
         </ul>
-
-        <button className="btn btn-danger w-auto min-w-100 px-3 ms-4" onClick={handleSignOut}>
-          Sign Out
-        </button>
       </div>
 
       {/* Content */}
