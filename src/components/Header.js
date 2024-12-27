@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../assests/logo1.jpg";
+import logo from "../assests/logo2.png";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -9,6 +9,7 @@ export default function Header() {
   const isEmployeeDashboard = location.pathname === "/employeepage";
   const isAdminDashboard = location.pathname === "/admingpage";
   const isStudentDashboard = location.pathname === "/studentpage";
+
   // Function for Sign Out button
   const handleSignOut = () => {
     alert("You have been signed out!");
@@ -16,11 +17,11 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "transparent", boxShadow: "none" }}>
       <div className="container">
         {/* Logo */}
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Logo" width="150" height="30" />
+          <img src={logo} alt="Logo" width="60" height="50" />
         </Link>
 
         {/* Navigation links */}
