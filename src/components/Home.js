@@ -61,14 +61,14 @@ export default function Home() {
       {/* Header Section */}
       <div className="row align-items-center">
         <div className="col-xl-6 text-section">
-          <h1>
-            Discover Your Dream Job
-            <span className="company-highlight"> with Paarsh Infotech</span>
-          </h1>
-          <p>
-            Explore thousands of job listings tailored to your skills and
-            preferences. Join now and take the next step in your career journey.
-          </p>
+        <h1 className="header-title">
+  Discover Your Dream Job
+  <span className="company-highlight"> with Paarsh Infotech</span>
+</h1>
+<p className="header-description">
+  Explore thousands of job listings tailored to your skills and preferences. Join now and take the next step in your career journey.
+</p>
+
           <div className="search-bar d-flex">
             <input
               type="text"
