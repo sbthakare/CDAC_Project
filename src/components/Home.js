@@ -61,13 +61,16 @@ export default function Home() {
       {/* Header Section */}
       <div className="row align-items-center">
         <div className="col-xl-6 text-section">
-        <h1 className="header-title">
-  Discover Your Dream Job
-  <span className="company-highlight"> with Paarsh Infotech</span>
-</h1>
-<p className="header-description">
-  Explore thousands of job listings tailored to your skills and preferences. Join now and take the next step in your career journey.
-</p>
+          <h1 className="header-title">
+            Discover Your Dream Job
+            <span className="company-highlight" id="typing-text">
+              with Paarsh Infotech
+            </span>
+          </h1>
+          <p className="header-description">
+            Explore thousands of job listings tailored to your skills and
+            preferences. Join now and take the next step in your career journey.
+          </p>
 
           <div className="search-bar d-flex">
             <input
@@ -77,16 +80,13 @@ export default function Home() {
               placeholder="Search for jobs (e.g., Software Developer)"
               className="search-input form-control"
             />
-            <button className="btn btn-primary search-button">
-              Search
-            </button>
+            <button className="btn btn-primary search-button">Search</button>
           </div>
         </div>
         <div className="col-xl-6 image-section">
           <img src={logo} alt="Dream Job" className="img-fluid" />
         </div>
       </div>
-
 
       {/* Popular Job Categories Section */}
       <div className="job-categories container mt-5">
@@ -108,7 +108,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
 
       {/* How It Works Section */}
       <div className="how-it-works container mt-5 how-it-works-section">
@@ -147,7 +146,6 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Job Listings Carousel */}
       <div className="jobs-section container mt-4">
         <h4 className="text-center mb-4">Job Listings</h4>
@@ -157,7 +155,10 @@ export default function Home() {
               <div className="row justify-content-center">
                 {chunk.map((job) => (
                   <div className="col-lg-3 col-md-4 col-sm-6 mb-3" key={job.id}>
-                    <div className="card text-center" style={{ width: "18rem" }}>
+                    <div
+                      className="card text-center"
+                      style={{ width: "18rem" }}
+                    >
                       <img
                         src={job.logo}
                         className="card-img-top"
@@ -166,9 +167,7 @@ export default function Home() {
                       />
                       <div className="card-body">
                         <h5 className="card-title">{job.title}</h5>
-                        <p className="card-text">
-                          {job.salary}
-                        </p>
+                        <p className="card-text">{job.salary}</p>
                       </div>
                     </div>
                   </div>
@@ -181,77 +180,83 @@ export default function Home() {
 
       {/* About and Contact Section */}
       <div className="about-section container mt-5">
-      <h4 className="mb-3 text-center" id="Aboutsection">About Us</h4>
-      <div className="row g-4 align-items-center">
-        <div className="col-md-6 about-text">
-          <p>
-            Paarsh Infotech is a leading company dedicated to bridging the gap
-            between job seekers and employers. We strive to create opportunities
-            and provide platforms for talented individuals to showcase their skills
-            and land their dream jobs.
-          </p>
-          <p>
-            With a vision to connect the best talent with top companies, we ensure
-            a seamless hiring process and career growth for individuals in various
-            domains.
-          </p>
-        </div>
+        <h4 className="mb-3 text-center" id="Aboutsection">
+          About Us
+        </h4>
+        <div className="row g-4 align-items-center">
+          <div className="col-md-6 about-text">
+            <p>
+              Paarsh Infotech is a leading company dedicated to bridging the gap
+              between job seekers and employers. We strive to create
+              opportunities and provide platforms for talented individuals to
+              showcase their skills and land their dream jobs.
+            </p>
+            <p>
+              With a vision to connect the best talent with top companies, we
+              ensure a seamless hiring process and career growth for individuals
+              in various domains.
+            </p>
+          </div>
 
-        <div className="col-md-6 about-image">
-          <img
-            src={aboutimg}
-            alt="About Us"
-            className="img-fluid rounded"
-          />
+          <div className="col-md-6 about-image">
+            <img src={aboutimg} alt="About Us" className="img-fluid rounded" />
+          </div>
         </div>
       </div>
-    </div>
-     <div className="contact-section container mt-5">
-      <h4 className="mb-3 text-center" id="contactsection">Contact Us</h4>
-      <div className="row g-4 align-items-center">
-        <div className="col-md-6 contact-image">
-          <img
-            src={contactimg}
-            alt="Contact Us"
-            className="img-fluid rounded"
-          />
-        </div>
-        <div className="col-md-6 contact-form">
-          <form className="form-container">
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">Message</label>
-              <textarea
-                className="form-control"
-                id="message"
-                rows="3"
-                placeholder="Enter your message"
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary send-button">
-              Send Message
-            </button>
-          </form>
+      <div className="contact-section container mt-5">
+        <h4 className="mb-3 text-center" id="contactsection">
+          Contact Us
+        </h4>
+        <div className="row g-4 align-items-center">
+          <div className="col-md-6 contact-image">
+            <img
+              src={contactimg}
+              alt="Contact Us"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="col-md-6 contact-form">
+            <form className="form-container">
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="message" className="form-label">
+                  Message
+                </label>
+                <textarea
+                  className="form-control"
+                  id="message"
+                  rows="3"
+                  placeholder="Enter your message"
+                ></textarea>
+              </div>
+              <button type="submit" className="btn btn-primary send-button">
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
