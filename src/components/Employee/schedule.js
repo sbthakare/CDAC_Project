@@ -10,9 +10,23 @@ const schedule = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
+<<<<<<< HEAD
     const storedEvents = JSON.parse(localStorage.getItem("events")) || [];
     setEvents(storedEvents);
   }, []);
+=======
+    // Initialize the employee's calendar with the assigned tasks
+    if (assignedTasks && Array.isArray(assignedTasks)) {
+      const taskEvents = assignedTasks.map((task) => ({
+        title: `${task.title} - ${task.employee}`,
+        start: task.start,
+        description: task.description || "",
+        allDay: true,
+      }));
+      setEvents(taskEvents);
+    }
+  }, [assignedTasks]);
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
 
   const handleDateClick = (info) => {
     const title = prompt("Enter Meeting Title");
@@ -36,7 +50,11 @@ const schedule = () => {
 
   return (
     <div className="container mt-5">
+<<<<<<< HEAD
       <h4>Your Schedule</h4>
+=======
+      <h4>Calendar</h4>
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"

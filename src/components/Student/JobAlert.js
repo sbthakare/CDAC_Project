@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const JobAlert = () => {
+<<<<<<< HEAD
   const [jobAlerts, setJobAlerts] = useState([]);
 
   useEffect(() => {
@@ -54,9 +55,48 @@ const JobAlert = () => {
             </div>
           ))}
         </div>
+=======
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    const storedJobs = JSON.parse(localStorage.getItem("postedJobs")) || [];
+    setJobs(storedJobs);
+  }, []);
+
+  return (
+    <div className="job-alert-container">
+      <h2>Posted Jobs</h2>
+      {jobs.length > 0 ? (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Skills</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jobs.map((job, index) => (
+              <tr key={index}>
+                <td>{job.title}</td>
+                <td>{job.description}</td>
+                <td>{job.skills}</td>
+                <td>₹{job.salary}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No jobs posted yet.</p>
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
       )}
     </div>
   );
 };
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
 
 export default JobAlert;

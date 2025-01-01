@@ -3,9 +3,13 @@ import PostJob from "./PostJob";
 import WorkTracker from "./WorkTracker";
 import ViewStudents from "./ViewStudents";
 import ViewEmployees from "./ViewEmployees";
+<<<<<<< HEAD
 import EmployeeCalendar from "./EmployeeCalendar";
 import AdminJobManagement from "./AdminJobManagement";
 
+=======
+import Transactions from "./Transactions";
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("postJob");
@@ -27,8 +31,12 @@ const AdminDashboard = () => {
           <li onClick={() => showSection("workTracker")}>Task Assign</li>
           <li onClick={() => showSection("viewStudents")}>View Students</li>
           <li onClick={() => showSection("viewEmployees")}>Employees Management</li>
+<<<<<<< HEAD
           <li onClick={() => showSection("viewEmployeescal")}>EmployeeCalendar</li>
           <li onClick={() => showSection("adminjobmanage")}>AdminJobManagement</li>
+=======
+          <li onClick={() => showSection("transactions")}>Transactions</li>
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
         </ul>
       </div>
 
@@ -38,8 +46,12 @@ const AdminDashboard = () => {
         {activeSection === "workTracker" && <WorkTracker />}
         {activeSection === "viewStudents" && <ViewStudents />}
         {activeSection === "viewEmployees" && <ViewEmployees />}
+<<<<<<< HEAD
         {activeSection === "viewEmployeescal" && <EmployeeCalendar />}
         {activeSection === "adminjobmanage" && <AdminJobManagement />}
+=======
+        {activeSection === "transactions" && <Transactions/>}
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
       </div>
     </div>
   );

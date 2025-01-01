@@ -1,4 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Define Variables for Colors and Fonts */
+.company-highlight {
+  display: inline-block; /* Keeps the span inline while allowing width adjustments */
+  overflow: hidden; /* Ensures the text stays within the container */
+  white-space: nowrap; /* Prevents the text from wrapping to the next line */
+  border-right: 2px solid #000; /* Optional: Simulates a typing cursor */
+  animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0; /* Start with no text visible */
+  }
+  to {
+    width: 100%; /* Show the full text */
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent; /* Makes the caret invisible */
+  }
+  50% {
+    border-color: black; /* Makes the caret visible */
+  }
+}
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e3a8a;
+  --background-color: #f0f9ff;
+  --border-color: #ddd;
+  --hover-color: #1abc9c;
+  --text-color: #333;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --dark-shadow: rgba(0, 0, 0, 0.2);
+  --font-family-primary: 'Poppins', sans-serif;
+  --font-family-secondary: 'Roboto', sans-serif;
+}
+.header-title {
+  font-size: 36px; /* Adjust the size for better impact */
+  font-weight: bold; /* Make the main title bold */
+  text-align: center;
+  margin-bottom: 20px; /* Add some space below */
+  color: #333; /* Dark color for the main title */
+}
+
+.company-highlight {
+  font-weight: bold;
+  color: #007bff; /* Make the company name standout */
+  font-size: 40px; /* Slightly larger font size */
+  text-transform: uppercase; /* Capitalize the company name for emphasis */
+}
+
+.header-description {
+  font-size: 18px; /* Slightly smaller than the title */
+  color: #555; /* Lighter color for description */
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Better line spacing */
+  padding: 0 15px; /* Add some horizontal padding */
+}
 
 * {
   margin: 0;
@@ -6,25 +68,28 @@
   box-sizing: border-box;
 }
 
+/* Body and Font */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-.a1 {   
+/* Flexbox Centering */
+.a1 {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('../src/assests/background1.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
+  background: url('../src/assests/background1.jpg') no-repeat center/cover;
 }
 
+/* Wrapper Styling */
 .wrapper {
   width: 400px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--light-shadow);
   padding: 20px 30px;
 }
 
@@ -36,9 +101,10 @@ body {
 .form-box h1 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-color);
 }
 
+/* Input Field Styling */
 .input-box {
   position: relative;
   margin: 15px 0;
@@ -47,7 +113,7 @@ body {
 .input-box input {
   width: 100%;
   padding: 10px 40px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 14px;
   outline: none;
@@ -55,7 +121,7 @@ body {
 }
 
 .input-box input:focus {
-  border-color: #007bff;
+  border-color: var(--primary-color);
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
 }
 
@@ -67,37 +133,40 @@ body {
   color: #888;
 }
 
+/* Button Styling */
 button[type="submit"] {
   width: 100%;
   padding: 10px 0;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   border: none;
   color: #fff;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: var(--secondary-color);
 }
 
+/* Register Link Styling */
 .register-link {
   margin-top: 20px;
   font-size: 14px;
 }
 
 .register-link span {
-  color: #007bff;
+  color: var(--primary-color);
   cursor: pointer;
   text-decoration: underline;
 }
 
 .register-link span:hover {
-  color: #0056b3;
+  color: var(--secondary-color);
 }
 
+<<<<<<< HEAD
 /* homepage */
 .homepage .text-section {
   padding-left: 120px;
@@ -128,48 +197,112 @@ button[type="submit"]:hover {
   margin-bottom: 1.5rem;
   line-height: 1.6;
   animation: fadeInUp 2s ease-in-out;
+=======
+/* Homepage Styles */
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.homepage .text-section .search-bar {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
+}
+
+.text-blue-500 {
+  color: #1E90FF;
+}
+
+/* Header Section */
+.text-section {
+  padding-right: 2rem;
+}
+
+.search-bar {
   display: flex;
-  align-items: center;
   margin-top: 1rem;
 }
 
+<<<<<<< HEAD
 .homepage .text-section .search-input {
   width: 80%;
   padding: 0.8rem;
   border-radius: 25px;
+=======
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
   border: 1px solid #ddd;
-  font-size: 1rem;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.homepage .text-section .search-input:focus {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  outline: none;
-  border-color: #007bff;
+.search-input:focus {
+  border-color: #1E90FF;
 }
 
 .search-button {
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px !important;
-  background-color: #007bff;
-  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #1E90FF;
+  color: white;
   font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
 }
 
-/* Card Styling */
+/* Job Categories Section */
+.job-categories {
+  background-color: #ffffff;
+  padding: 4rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* How it Works Section */
+.how-it-works {
+  background-color: #f1f1f1;
+  padding: 4rem 0;
+}
+
 .card {
+<<<<<<< HEAD
   width: 200px;
   height: 200px;
   border-radius: 30px;
@@ -199,16 +332,36 @@ button[type="submit"]:hover {
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
+=======
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
   font-size: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #666;
+  margin-top: 1rem;
 }
 
-.jobs-section .btn:hover {
-  background-color: #333;
-  color: #fff;
-  transform: scale(1.05);
+/* Job Listings Section */
+.jobs-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
 }
 
+<<<<<<< HEAD
 /* Category Card Image Styling */
 .category-card .card-img-top {
   width: 100%;
@@ -225,12 +378,17 @@ button[type="submit"]:hover {
 .carousel-control-next-icon {
   background-color: #000;
   border-radius: 50%;
+=======
+.carousel-item {
+  padding: 2rem 0;
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
 }
 
-.carousel-indicators [data-bs-target] {
-  background-color: #000;
+.card-body {
+  padding: 1.5rem;
 }
 
+<<<<<<< HEAD
 /* Animations */
 @keyframes fadeInLeft {
   from {
@@ -320,6 +478,89 @@ button[type="submit"]:hover {
 
 
 /* Admin */
+=======
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* About Us Section */
+.about-contact-section {
+  padding: 4rem 0;
+}
+
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.about-text p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image img {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact Us Section */
+.contact-section {
+  padding: 4rem 0;
+}
+
+.contact-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1E90FF;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #1E90FF;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Admin Content */
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
 .dashboard {
   display: flex;
 }
@@ -373,6 +614,7 @@ h2 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+<<<<<<< HEAD
 /*task */
 /* Main Title Styling */
 .main-title {
@@ -472,3 +714,99 @@ h2 {
 }
 
 
+=======
+
+/* Transaction History */
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.amount {
+  font-weight: bold;
+  color: #333;
+}
+
+.status-pending {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.status-successful {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.icon.paypal::before {
+  content: "💳";
+}
+
+.icon.bank-transfer::before {
+  content: "🏦";
+}
+
+.icon.pending::before {
+  content: "⏳";
+}
+
+.icon.successful::before {
+  content: "✔️";
+}
+
+/* Calendar */
+.calendar-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-item {
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.integration-info {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+
+
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783

@@ -69,7 +69,10 @@ const StudentDashboard = () => {
             Job Alerts
           </li>
         </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9dbc3f19e2ccd07cb7ba816d2ee5a95562f10783
       </div>
 
       {/* Content */}
